@@ -1,0 +1,57 @@
+//package sample
+//
+//import com.laher.drools.supermarket.entity.Order
+//import com.laher.drools.supermarket.entity.Item
+//import com.laher.drools.supermarket.entity.Disconfig
+//
+///*
+//rule "满减优惠"
+//salience 5
+//activation-group "preferential"
+//when
+//    $o:Order(money>=200)
+//then
+//    $o.setPreferential(20);
+//    $o.setActual($o.getMoney()-$o.getPreferential());
+//    System.out.println("满减优惠");
+//end
+//
+//rule "每满减优惠"
+//salience 10
+//activation-group "preferential"
+//when
+//    $o:Order(money>=300)
+//then
+//    $o.setPreferential(($o.getMoney()/300)*30);
+//    $o.setActual($o.getMoney()-$o.getPreferential());
+//    System.out.println("每满减优惠");
+//end
+//
+//rule "满300减30优惠"
+//salience 20
+//activation-group "preferential"
+//when
+//    $o:Order()
+//    $sum:Integer(doubleValue>300) from accumulate(Item($money:money) from $o.getItems(),sum($money))
+//then
+//    $o.setMoney($sum);
+//    $o.setPreferential(30);
+//    $o.setActual($o.getMoney()-$o.getPreferential());
+//    System.out.println("满300减30优惠");
+//end
+//*/
+//
+//rule "灵活满减优惠"
+//salience 30
+//activation-group "preferential"
+//when
+//    $o:Order()
+//    $d:Disconfig()
+//    $sum:Integer(doubleValue>$d.getMoney()) from accumulate(Item($money:money) from $o.getItems(),sum($money))
+//then
+//    $o.setMoney($sum);
+//    $o.setPreferential($d.getPreferential());
+//    $o.setActual($o.getMoney()-$o.getPreferential());
+//    System.out.println("灵活满减优惠");
+//end
+//

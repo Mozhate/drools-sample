@@ -2,19 +2,16 @@ package com.laher.drools.supermarket.entity;
 
 /**
  * 商品
- * <p>
- *
+ * 
  * @author laher
- * @version 1.0.0
- * @date 2020/10/14
+ * @date 2020/10/15/015
  */
 public class Item {
+
     /** 名称 **/
     private String name;
     /** 金额 **/
     private Integer money;
-
-    public Item() {}
 
     public Item(String name, Integer money) {
         this.name = name;

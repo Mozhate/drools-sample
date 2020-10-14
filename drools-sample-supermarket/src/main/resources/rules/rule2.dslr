@@ -1,0 +1,16 @@
+/*
+package sample
+
+import com.laher.drools.supermarket.entity.Order
+import com.laher.drools.supermarket.entity.Item
+import com.laher.drools.supermarket.entity.Disconfig
+
+rule "灵活满减优惠"
+when
+    存在订单
+    存在配置
+    满足配置条件
+then
+    计算结果
+end
+*/

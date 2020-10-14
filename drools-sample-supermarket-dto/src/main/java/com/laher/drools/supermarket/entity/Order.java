@@ -1,24 +1,30 @@
 package com.laher.drools.supermarket.entity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * 订单
- * <p>
- *
+ * 
  * @author laher
- * @version 1.0.0
- * @date 2020/10/14
+ * @date 2020/10/14/014
  */
 public class Order {
     /** 价格 **/
     private Integer money;
-    /** 优惠 **/
+    /** 优惠金额 **/
     private Integer preferential;
-    /** 支付 **/
-    private Integer pay;
-    /** 购物列表 **/
-    private List<Item> items;
+    /** 实际支付 **/
+    private Integer actual;
+    /** 商品列表 **/
+    private List<Item> items = new ArrayList<Item>();
+
+    public Order() {}
+
+    public Order(Integer money) {
+        this.money = money;
+    }
 
     public Integer getMoney() {
         return money;
@@ -36,12 +42,17 @@ public class Order {
         this.preferential = preferential;
     }
 
-    public Integer getPay() {
-        return pay;
+    public Integer getActual() {
+        return actual;
     }
 
-    public void setPay(Integer pay) {
-        this.pay = pay;
+    public void setActual(Integer actual) {
+        this.actual = actual;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "money=" + money + ", preferential=" + preferential + ", actual=" + actual + '}';
     }
 
     public List<Item> getItems() {
@@ -50,5 +61,9 @@ public class Order {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public void addItem(Item ... items) {
+        this.items = Arrays.asList(items);
     }
 }

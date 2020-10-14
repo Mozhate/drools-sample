@@ -6,34 +6,30 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
 /**
- * 测验
- * <p>
- *
  * @author laher
- * @version 1.0.0
- * @date 2020/10/14
+ * @date 2020/10/14/014
  */
 public class Test {
+
     public static void main(String[] args) {
-        new Test().demo1();
+        new Test().rule1();
     }
 
-    public void demo1() {
-        // 获取服务
+    private void rule1() {
+        // 获取kieService环境对象
         KieServices kieServices = KieServices.Factory.get();
-        // 获取类路径的配置项
+        // 获取类路径kmodule.xml下配置
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
-        // 获取ksession1规则的会话
+        // 获取会话
         KieSession kieSession = kieContainer.newKieSession("ksession1");
 
-        // 创造数据：超过200-30 不超过则无优惠
-        Order order1 = new Order(200);
+        Order order = new Order(800);
 
-        kieSession.insert(order1);
+        kieSession.insert(order);
 
         // 执行会话
         kieSession.fireAllRules();
 
-        System.out.println(order1.toString());
+        System.out.println(order.toString());
     }
 }

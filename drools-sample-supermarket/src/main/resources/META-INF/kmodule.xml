@@ -4,8 +4,8 @@
 <!--所有其他Kie构件必须存储在resources文件夹或它下面的任何其他子文件夹中-->
 <!--&ndash;&gt;-->
 <!--<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-<!--         xmlns="http://www.drools.org/xsd/kmodule">-->
-<!--    <kbase name="kbase1" packages="sample.*">-->
-<!--        <ksession name="ksession1"/>-->
-<!--    </kbase>-->
+         <!--xmlns="http://www.drools.org/xsd/kmodule">-->
+    <!--<kbase name="kbase1" packages="sample.*">-->
+        <!--<ksession name="ksession1"/>-->
+    <!--</kbase>-->
 <!--</kmodule>-->
