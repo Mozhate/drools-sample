@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author laher
@@ -43,7 +45,10 @@ public class TestSpring {
         Item item1 = new Item("娃哈哈", 100);
         Item item2 = new Item("天地一号", 700);
         Order order = new Order();
-        order.addItem(item1, item2);
+        List<Item> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+        order.setItems(items);
         Disconfig disconfig = new Disconfig(400,50);
 
         kieSession.insert(order);

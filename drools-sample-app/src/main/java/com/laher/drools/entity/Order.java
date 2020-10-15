@@ -1,14 +1,12 @@
-package com.laher.drools.supermarket.entity;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package com.laher.drools.entity;
 
 /**
  * 订单
- * 
+ * <p>
+ *
  * @author laher
- * @date 2020/10/14/014
+ * @version 1.0.0
+ * @date 2020/10/15
  */
 public class Order {
     /** 价格 **/
@@ -17,14 +15,6 @@ public class Order {
     private Integer preferential;
     /** 实际支付 **/
     private Integer actual;
-    /** 商品列表 **/
-    private List<Item> items;
-
-    public Order() {}
-
-    public Order(Integer money) {
-        this.money = money;
-    }
 
     public Integer getMoney() {
         return money;
@@ -48,18 +38,5 @@ public class Order {
 
     public void setActual(Integer actual) {
         this.actual = actual;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" + "money=" + money + ", preferential=" + preferential + ", actual=" + actual + '}';
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
     }
 }

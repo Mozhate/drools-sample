@@ -13,6 +13,9 @@ public class Item {
     /** 金额 **/
     private Integer money;
 
+    public Item() {
+    }
+
     public Item(String name, Integer money) {
         this.name = name;
         this.money = money;

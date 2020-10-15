@@ -17,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,8 +38,11 @@ public class TestRemoteSpring {
         Item item1 = new Item("娃哈哈", 100);
         Item item2 = new Item("天地一号", 700);
         Order order = new Order();
-        order.addItem(item1);
-        order.addItem(item2);
+        List<Item> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+        order.setItems(items);
+
 //        Disconfig disconfig = new Disconfig(400,50);
 //        Order order = new Order(200);
 
@@ -53,6 +57,7 @@ public class TestRemoteSpring {
         ServiceResponse<ExecutionResults> results = ruleServicesClient.executeCommandsWithResults(CONTAINER_ID,
                 kieCommands.newBatchExecution(commands, "ksession1"));
 
+        System.out.println(results.getMsg());
         Order res = (Order)results.getResult().getValue("Order");
 
         System.out.println(res.toString());

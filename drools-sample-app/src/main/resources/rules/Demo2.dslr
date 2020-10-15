@@ -1,0 +1,14 @@
+/*
+package rules
+
+import com.laher.drools.entity.Order
+import com.laher.drools.entity.Discount
+
+rule 满减优惠
+when
+    存在配置
+    存在订单且满足优惠
+then
+    进行结算
+end
+*/

@@ -1,0 +1,45 @@
+// 包名和kmodule.xml-kbase-packages
+package rules
+
+import com.laher.drools.entity.Order
+import com.laher.drools.entity.Discount
+
+// main
+rule "满足200减20优惠"
+when
+    $order:Order(money>=200)
+then
+    $order.setPreferential(20);
+    $order.setActual($order.getMoney()-$order.getPreferential());
+    System.out.println("满足200减20优惠");
+end
+
+rule "不满足200减20优惠"
+when
+    $order:Order(money<200)
+then
+    $order.setPreferential(0);
+    $order.setActual($order.getMoney()-$order.getPreferential());
+    System.out.println("不满足200减20优惠");
+end
+
+// spring
+//rule "满减优惠"
+//when
+//    $discount:Discount()
+//    $order:Order(money>=$discount.getMoney())
+//then
+//    $order.setPreferential($discount.getPreferential());
+//    $order.setActual($order.getMoney()-$order.getPreferential());
+//    System.out.println("满减优惠");
+//end
+//
+//rule "无优惠"
+//when
+//    $discount:Discount()
+//    $order:Order(money<$discount.getMoney())
+//then
+//    $order.setPreferential(0);
+//    $order.setActual($order.getMoney()-$order.getPreferential());
+//    System.out.println("无优惠");
+//end
